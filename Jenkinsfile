@@ -41,10 +41,10 @@ pipeline {
                 }
             }
         }
-        stage('Clean workspaces') {
-            steps {
-                deleteDir()
-            }
-        }
     }
+    post {
+        cleanup{
+            deleteDir()
+        }
+}
 }
