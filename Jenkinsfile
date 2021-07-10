@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     if (fileExists('nexus-iq-cli')) {
-                        echo 'Skip download CLI'
+                        echo 'Skip CLI download'
                     } else {
                         echo 'Downloading CLI'
                         withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin', passwordVariable: 'pass', usernameVariable: 'user')]) {
@@ -21,9 +21,9 @@ pipeline {
             steps {
                 script {
                     if (fileExists('cyberark.csproj')) {
-                        echo 'Skip download projects'
+                        echo 'Skip project download'
                     } else {
-                        echo 'Downloading projects'
+                        echo 'Download files to scan'
                         withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin', passwordVariable: 'pass', usernameVariable: 'user')]) {
                             sh 'wget -q --no-check-certificate --user "${user}" --password "${pass}" "http://ip-10-60-1-86.ap-southeast-1.compute.internal:8081/repository/fileserver/devops/sampleproject/nuget/cyberarkticketing/cyberark.csproj"'
                             sh 'wget -q --no-check-certificate --user "${user}" --password "${pass}" "http://ip-10-60-1-86.ap-southeast-1.compute.internal:8081/repository/fileserver/devops/sampleproject/nuget/cyberarkticketing/packages.config"'
