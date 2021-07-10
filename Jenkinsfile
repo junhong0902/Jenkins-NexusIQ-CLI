@@ -10,7 +10,7 @@ pipeline {
                     } else {
                         echo 'Downloading CLI'
                         withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                            sh 'wget --no-check-certificate --user "${user}" --password "${pass}" "http://ip-10-60-1-86.ap-southeast-1.compute.internal:8081/repository/fileserver/sonatype/nexusiq/nexus-iq-cli"'
+                            sh 'wget -q --no-check-certificate --user "${user}" --password "${pass}" "http://ip-10-60-1-86.ap-southeast-1.compute.internal:8081/repository/fileserver/sonatype/nexusiq/nexus-iq-cli"'
                             sh 'chmod +x nexus-iq-cli'
                         }
                     }
@@ -25,8 +25,8 @@ pipeline {
                     } else {
                         echo 'Downloading projects'
                         withCredentials([usernamePassword(credentialsId: 'nexus-repo-admin', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                            sh 'wget --no-check-certificate --user "${user}" --password "${pass}" "http://ip-10-60-1-86.ap-southeast-1.compute.internal:8081/repository/fileserver/devops/sampleproject/nuget/cyberarkticketing/cyberark.csproj"'
-                            sh 'wget --no-check-certificate --user "${user}" --password "${pass}" "http://ip-10-60-1-86.ap-southeast-1.compute.internal:8081/repository/fileserver/devops/sampleproject/nuget/cyberarkticketing/packages.config"'
+                            sh 'wget -q --no-check-certificate --user "${user}" --password "${pass}" "http://ip-10-60-1-86.ap-southeast-1.compute.internal:8081/repository/fileserver/devops/sampleproject/nuget/cyberarkticketing/cyberark.csproj"'
+                            sh 'wget -q --no-check-certificate --user "${user}" --password "${pass}" "http://ip-10-60-1-86.ap-southeast-1.compute.internal:8081/repository/fileserver/devops/sampleproject/nuget/cyberarkticketing/packages.config"'
                         }
                     }
                 }
