@@ -20,7 +20,7 @@ pipeline {
         stage('Nuget Project Preparation') {
             steps {
                 script {
-                    if (fileExists('cyberark.csproj')) {
+                    if (fileExists('sample.csproj')) {
                         echo 'Skip project download'
                     } else {
                         echo 'Download files to scan'
@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'nexus-iq-admin', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                            sh './nexus-iq-cli -a "${user}:${pass}" -i NuGet-Sample1 -s "https://nexusiq.nssg.jhdomain.com/" -t "build" "cyberark.csproj" "packages.config" '
+                            sh './nexus-iq-cli -a "${user}:${pass}" -i NuGet-Sample1 -s "https://nexusiq.nssg.jhdomain.com/" -t "build" "*.csproj" "*.config" '
                         }
                 }
             }
