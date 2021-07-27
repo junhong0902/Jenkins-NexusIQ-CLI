@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'nexus-iq-admin', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                            sh './nexus-iq-cli -a "${user}:${pass}" -i NuGet-Sample1 -s "https://nexusiq.nssg.jhdomain.com/" -t "build" "*.csproj" "*.config" '
+                            sh './nexus-iq-cli -a "${user}:${pass}" -i NuGet-Sample1 -s "https://nexusiq.nssg.jhdomain.com/" -t "build" "sample.csproj" "packages.config" '
                         }
                 }
             }
