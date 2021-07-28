@@ -36,6 +36,7 @@ pipeline {
             steps {
                 echo 'Building Java...'
                 sh 'mvn clean install'
+            }
         }
         stage('Sonatype Scan') {
             steps {
