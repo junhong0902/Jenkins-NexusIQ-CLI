@@ -33,10 +33,14 @@ pipeline {
             }
         }
         stage('Build') {
-            def mvn_version = 'maven'
-            withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
-              sh "mvn clean package"
-            }     
+            steps{
+                script{
+                    def mvn_version = 'maven'
+                    withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+                      sh "mvn clean package"
+                    }  
+                }
+            }
         }
         stage('Sonatype Scan') {
             steps {
