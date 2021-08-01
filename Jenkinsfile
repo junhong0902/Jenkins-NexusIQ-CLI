@@ -54,9 +54,9 @@ pipeline {
     }
     post {
         cleanup{
-            deleteDir()
-            dir("${env.WORKSPACE}@script") {
-                deleteDir()
+            //deleteDir()
+            //dir("${env.WORKSPACE}@script") {
+                //deleteDir()
             }
         }
     }
