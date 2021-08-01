@@ -54,7 +54,7 @@ pipeline {
     }
     post {
         cleanup{
-            dir("${env.WORKSPACE}@script")
+            echo 'Download files to scan'
             //deleteDir()
             //dir("${env.WORKSPACE}@script") {
                 //deleteDir()
