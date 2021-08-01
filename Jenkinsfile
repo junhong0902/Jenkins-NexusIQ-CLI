@@ -57,7 +57,7 @@ pipeline {
             //deleteDir()
             //dir("${env.WORKSPACE}@script") {
                 //deleteDir()
-            }
+            //}
         }
     }
 }
