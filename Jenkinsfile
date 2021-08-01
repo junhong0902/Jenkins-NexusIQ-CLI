@@ -17,7 +17,7 @@ pipeline {
                 }
             }
         }
-        stage('Nuget Project Preparation') {
+        stage('Java Project Preparation') {
             steps {
                 script {
                     if (fileExists('sample.csproj')) {
